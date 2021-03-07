@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>PrimeStone.Core</id>
+    <version>1.0.0</version>
+    <authors>PrimeStone.Core</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0">
+        <dependency id="Microsoft.Extensions.Options" version="5.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="E:\Desarrollo de Aplicaciones\Proyecto Personal\PruebaPrimeStone\PruebaPrimeStone\PrimeStone.Core\bin\Debug\net5.0\PrimeStone.Core.runtimeconfig.json" target="lib\net5.0\PrimeStone.Core.runtimeconfig.json" />
+    <file src="E:\Desarrollo de Aplicaciones\Proyecto Personal\PruebaPrimeStone\PruebaPrimeStone\PrimeStone.Core\bin\Debug\net5.0\PrimeStone.Core.dll" target="lib\net5.0\PrimeStone.Core.dll" />
+  </files>
+</package>
