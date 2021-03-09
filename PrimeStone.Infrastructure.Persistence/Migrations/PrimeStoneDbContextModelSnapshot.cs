@@ -93,8 +93,8 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                             Id = 1,
                             CodigoCurso = "MATE-01",
                             EstaBorrado = false,
-                            FechaActualizacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(3779),
-                            FechaCreacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(3783),
+                            FechaActualizacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7150),
+                            FechaCreacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7154),
                             FechaInicio = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             NombreCurso = "MATEMÁTICAS"
                         },
@@ -103,8 +103,8 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                             Id = 2,
                             CodigoCurso = "MECA-02",
                             EstaBorrado = false,
-                            FechaActualizacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(4223),
-                            FechaCreacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(4227),
+                            FechaActualizacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7504),
+                            FechaCreacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7508),
                             FechaInicio = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             NombreCurso = "MECÁNICA CUÁNTICA"
                         },
@@ -113,8 +113,8 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                             Id = 3,
                             CodigoCurso = "TECU-03",
                             EstaBorrado = false,
-                            FechaActualizacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(4228),
-                            FechaCreacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(4230),
+                            FechaActualizacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7509),
+                            FechaCreacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7510),
                             FechaInicio = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             NombreCurso = "TEORÍA CUÁNTICA DE CAMPOS"
                         });
@@ -184,8 +184,8 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                             Id = 1,
                             EstaBorrado = false,
                             EstudianteId = 1,
-                            FechaActualizacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2043),
-                            FechaCreacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2048),
+                            FechaActualizacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(5472),
+                            FechaCreacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(5478),
                             StringDireccion = "C7CW+84 MADRID, ESPAÑA",
                             TipoDireccion = 0
                         },
@@ -194,8 +194,8 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                             Id = 2,
                             EstaBorrado = false,
                             EstudianteId = 1,
-                            FechaActualizacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2837),
-                            FechaCreacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2841),
+                            FechaActualizacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6243),
+                            FechaCreacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6247),
                             StringDireccion = "F88X+2R MADRID, ESPAÑA",
                             TipoDireccion = 1
                         },
@@ -204,8 +204,8 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                             Id = 3,
                             EstaBorrado = false,
                             EstudianteId = 2,
-                            FechaActualizacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2843),
-                            FechaCreacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2844),
+                            FechaActualizacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6249),
+                            FechaCreacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6250),
                             StringDireccion = "F972+V7 MADRID, ESPAÑA",
                             TipoDireccion = 0
                         },
@@ -214,11 +214,46 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                             Id = 4,
                             EstaBorrado = false,
                             EstudianteId = 3,
-                            FechaActualizacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2846),
-                            FechaCreacion = new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2847),
+                            FechaActualizacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6251),
+                            FechaCreacion = new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6252),
                             StringDireccion = "F8WQ+VG MADRID, ESPAÑA",
                             TipoDireccion = 2
                         });
+                });
+
+            modelBuilder.Entity("PrimeStone.Core.Models.DoWork", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasComment("DoWork Identifier")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("EstaBorrado")
+                        .HasMaxLength(1)
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("EstaBorrado")
+                        .HasComment("is deleted state  0:Active  1:deleted");
+
+                    b.Property<string>("Evento")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("Evento")
+                        .HasComment("Event name");
+
+                    b.Property<DateTime>("Fecha")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasColumnName("FechaCreacion")
+                        .HasDefaultValueSql("getdate()")
+                        .HasComment("Creation date");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DoWork");
                 });
 
             modelBuilder.Entity("PrimeStone.Core.Models.Estudiante", b =>
@@ -292,8 +327,8 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                             Id = 1,
                             Apellidos = "RAMOS",
                             EstaBorrado = false,
-                            FechaActualizacion = new DateTime(2021, 3, 6, 5, 8, 48, 43, DateTimeKind.Local).AddTicks(9997),
-                            FechaCreacion = new DateTime(2021, 3, 6, 5, 8, 48, 44, DateTimeKind.Local).AddTicks(8642),
+                            FechaActualizacion = new DateTime(2021, 3, 9, 16, 18, 0, 550, DateTimeKind.Local).AddTicks(6805),
+                            FechaCreacion = new DateTime(2021, 3, 9, 16, 18, 0, 551, DateTimeKind.Local).AddTicks(4157),
                             FechaNacimento = new DateTime(2000, 1, 1, 7, 0, 0, 0, DateTimeKind.Unspecified),
                             Genero = 1,
                             Nombres = "SERGIO"
@@ -303,8 +338,8 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                             Id = 2,
                             Apellidos = "DIAZ ARANGO",
                             EstaBorrado = false,
-                            FechaActualizacion = new DateTime(2021, 3, 6, 5, 8, 48, 45, DateTimeKind.Local).AddTicks(778),
-                            FechaCreacion = new DateTime(2021, 3, 6, 5, 8, 48, 45, DateTimeKind.Local).AddTicks(783),
+                            FechaActualizacion = new DateTime(2021, 3, 9, 16, 18, 0, 551, DateTimeKind.Local).AddTicks(6077),
+                            FechaCreacion = new DateTime(2021, 3, 9, 16, 18, 0, 551, DateTimeKind.Local).AddTicks(6082),
                             FechaNacimento = new DateTime(2000, 1, 1, 7, 0, 0, 0, DateTimeKind.Unspecified),
                             Genero = 1,
                             Nombres = "MARTÍN ALEJANDRO"
@@ -314,8 +349,8 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                             Id = 3,
                             Apellidos = "PEREZ LINARES",
                             EstaBorrado = false,
-                            FechaActualizacion = new DateTime(2021, 3, 6, 5, 8, 48, 45, DateTimeKind.Local).AddTicks(786),
-                            FechaCreacion = new DateTime(2021, 3, 6, 5, 8, 48, 45, DateTimeKind.Local).AddTicks(787),
+                            FechaActualizacion = new DateTime(2021, 3, 9, 16, 18, 0, 551, DateTimeKind.Local).AddTicks(6084),
+                            FechaCreacion = new DateTime(2021, 3, 9, 16, 18, 0, 551, DateTimeKind.Local).AddTicks(6085),
                             FechaNacimento = new DateTime(2000, 1, 1, 7, 0, 0, 0, DateTimeKind.Unspecified),
                             Genero = 0,
                             Nombres = "ANDREA VALERIA"
@@ -324,73 +359,57 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("PrimeStone.Core.Models.EstudianteCurso", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("EstudianteId")
                         .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasComment("Student Identifier")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnName("EstudianteId")
+                        .HasComment("Student Identifier Foreign Key");
 
                     b.Property<int>("CursoId")
                         .HasColumnType("int")
                         .HasColumnName("CursoId")
                         .HasComment("Course Identifier Foreign Key");
 
-                    b.Property<int>("EstudianteId")
-                        .HasColumnType("int")
-                        .HasColumnName("EstudianteId")
-                        .HasComment("Student Identifier Foreign Key");
-
-                    b.HasKey("Id");
+                    b.HasKey("EstudianteId", "CursoId");
 
                     b.HasIndex("CursoId");
-
-                    b.HasIndex("EstudianteId");
 
                     b.ToTable("EstudianteCurso");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            CursoId = 1,
-                            EstudianteId = 1
+                            EstudianteId = 1,
+                            CursoId = 1
                         },
                         new
                         {
-                            Id = 2,
-                            CursoId = 1,
-                            EstudianteId = 2
+                            EstudianteId = 2,
+                            CursoId = 1
                         },
                         new
                         {
-                            Id = 3,
-                            CursoId = 2,
-                            EstudianteId = 1
+                            EstudianteId = 1,
+                            CursoId = 2
                         },
                         new
                         {
-                            Id = 4,
-                            CursoId = 2,
-                            EstudianteId = 2
+                            EstudianteId = 2,
+                            CursoId = 2
                         },
                         new
                         {
-                            Id = 5,
-                            CursoId = 2,
-                            EstudianteId = 3
+                            EstudianteId = 3,
+                            CursoId = 2
                         },
                         new
                         {
-                            Id = 6,
-                            CursoId = 3,
-                            EstudianteId = 1
+                            EstudianteId = 1,
+                            CursoId = 3
                         },
                         new
                         {
-                            Id = 7,
-                            CursoId = 3,
-                            EstudianteId = 2
+                            EstudianteId = 2,
+                            CursoId = 3
                         });
                 });
 
@@ -464,11 +483,11 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                         {
                             Id = 1,
                             EstaBorrado = false,
-                            FechaActualizacion = new DateTime(2021, 3, 6, 5, 8, 48, 47, DateTimeKind.Local).AddTicks(215),
-                            FechaCreacion = new DateTime(2021, 3, 6, 5, 8, 48, 47, DateTimeKind.Local).AddTicks(220),
-                            Password = "123",
+                            FechaActualizacion = new DateTime(2021, 3, 9, 16, 18, 0, 553, DateTimeKind.Local).AddTicks(2956),
+                            FechaCreacion = new DateTime(2021, 3, 9, 16, 18, 0, 553, DateTimeKind.Local).AddTicks(2961),
+                            Password = "10000.Dd6gA0wpNFa758a0ENRsKA==.l4OGUevuJYQJ1B1VmTakI8c6u3jtolUZVB4Dqdzr4P4=",
                             Role = "Administrator",
-                            User = "Erwing Candelario",
+                            User = "ecandelario",
                             UserName = "Erwing"
                         });
                 });

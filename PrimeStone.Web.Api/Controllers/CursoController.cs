@@ -27,7 +27,7 @@ namespace PrimeStone.Web.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetPost(int id)
+        public async Task<IActionResult> GetCurso(int id)
         {
             var post = await _cursoService.GetCurso(id).ConfigureAwait(false);
             var postDto = _mapper.Map<CursoDto>(post);
@@ -40,7 +40,7 @@ namespace PrimeStone.Web.Api.Controllers
         {
             var curso = _mapper.Map<Curso>(postDto);
 
-            await _cursoService.InsertPost(curso).ConfigureAwait(false);
+            await _cursoService.InsertCurso(curso).ConfigureAwait(false);
 
             postDto = _mapper.Map<CursoDto>(curso);
             var response = new ApiResponse<CursoDto>(postDto);
@@ -53,7 +53,7 @@ namespace PrimeStone.Web.Api.Controllers
             var curso = _mapper.Map<Curso>(cursoDto);
             curso.Id = id;
 
-            var result = await _cursoService.UpdatePost(curso).ConfigureAwait(false);
+            var result = await _cursoService.UpdateCurso(curso).ConfigureAwait(false);
             var response = new ApiResponse<bool>(result);
             return Ok(response);
         }
@@ -61,7 +61,7 @@ namespace PrimeStone.Web.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _cursoService.DeletePost(id).ConfigureAwait(false);
+            var result = await _cursoService.DeleteCurso(id).ConfigureAwait(false);
             var response = new ApiResponse<bool>(result);
             return Ok(response);
         }

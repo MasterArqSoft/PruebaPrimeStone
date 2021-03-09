@@ -22,4 +22,8 @@
     <ProjectReference Include="..\PrimeStone.Infrastructure.Persistence\PrimeStone.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
+
 </Project>

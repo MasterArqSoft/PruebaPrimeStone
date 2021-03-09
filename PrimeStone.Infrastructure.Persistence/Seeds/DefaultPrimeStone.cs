@@ -119,43 +119,36 @@ namespace PrimeStone.Infrastructure.Persistence.Seeds
             modelBuilder.Entity<EstudianteCurso>().HasData(
                 new EstudianteCurso()
                 {
-                    Id = 1,
                     CursoId = 1,
                     EstudianteId = 1,
                 },
                 new EstudianteCurso()
                 {
-                    Id = 2,
                     CursoId = 1,
                     EstudianteId = 2,
                 },
                 new EstudianteCurso()
                 {
-                    Id = 3,
                     CursoId = 2,
                     EstudianteId = 1,
                 },
                 new EstudianteCurso()
                 {
-                    Id = 4,
                     CursoId = 2,
                     EstudianteId = 2,
                 },
                 new EstudianteCurso()
                 {
-                    Id = 5,
                     CursoId = 2,
                     EstudianteId = 3,
                 },
                 new EstudianteCurso()
                 {
-                    Id = 6,
                     CursoId = 3,
                     EstudianteId = 1,
                 },
                 new EstudianteCurso()
                 {
-                    Id = 7,
                     CursoId = 3,
                     EstudianteId = 2,
                 });

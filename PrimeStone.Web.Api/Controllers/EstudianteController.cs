@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PrimeStone.Web.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PrimeStone.Infrastructure.Persistence.Migrations
 {
-    public partial class BDInitial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -22,7 +22,25 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                     FechaBorrado = table.Column<DateTime>(type: "datetime", nullable: true, comment: "Deletion Date"),
                     FechaActualizacion = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()", comment: "Update date")
                 },
-                constraints: table => table.PrimaryKey("PK_Curso", x => x.Id));
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Curso", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DoWork",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false, comment: "DoWork Identifier")
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EstaBorrado = table.Column<bool>(type: "bit", maxLength: 1, nullable: false, defaultValue: true, comment: "is deleted state  0:Active  1:deleted"),
+                    Evento = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false, comment: "Event name"),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()", comment: "Creation date")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DoWork", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Estudiante",
@@ -39,7 +57,10 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                     FechaBorrado = table.Column<DateTime>(type: "datetime", nullable: true, comment: "Deletion Date"),
                     FechaActualizacion = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()", comment: "Update date")
                 },
-                constraints: table => table.PrimaryKey("PK_Estudiante", x => x.Id));
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Estudiante", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Seguridad",
@@ -56,7 +77,10 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                     FechaBorrado = table.Column<DateTime>(type: "datetime", nullable: true, comment: "Deletion Date"),
                     FechaActualizacion = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()", comment: "Update date")
                 },
-                constraints: table => table.PrimaryKey("PK_Seguridad", x => x.IdSeguridad));
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Seguridad", x => x.IdSeguridad);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Usuario",
@@ -75,7 +99,10 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                     FechaBorrado = table.Column<DateTime>(type: "datetime", nullable: true, comment: "Deletion Date"),
                     FechaActualizacion = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "getdate()", comment: "Update date")
                 },
-                constraints: table => table.PrimaryKey("PK_Usuario", x => x.IdUsuario));
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usuario", x => x.IdUsuario);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Direccion",
@@ -106,14 +133,12 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                 name: "EstudianteCurso",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false, comment: "Student Identifier")
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     EstudianteId = table.Column<int>(type: "int", nullable: false, comment: "Student Identifier Foreign Key"),
                     CursoId = table.Column<int>(type: "int", nullable: false, comment: "Course Identifier Foreign Key")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EstudianteCurso", x => x.Id);
+                    table.PrimaryKey("PK_EstudianteCurso", x => new { x.EstudianteId, x.CursoId });
                     table.ForeignKey(
                         name: "Fk_StudentCourse_Course",
                         column: x => x.CursoId,
@@ -133,9 +158,9 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                 columns: new[] { "Id", "CodigoCurso", "EstaBorrado", "FechaActualizacion", "FechaBorrado", "FechaCreacion", "FechaFin", "NombreCurso" },
                 values: new object[,]
                 {
-                    { 1, "MATE-01", false, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(3779), null, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(3783), null, "MATEMÁTICAS" },
-                    { 2, "MECA-02", false, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(4223), null, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(4227), null, "MECÁNICA CUÁNTICA" },
-                    { 3, "TECU-03", false, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(4228), null, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(4230), null, "TEORÍA CUÁNTICA DE CAMPOS" }
+                    { 1, "MATE-01", false, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7150), null, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7154), null, "MATEMÁTICAS" },
+                    { 2, "MECA-02", false, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7504), null, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7508), null, "MECÁNICA CUÁNTICA" },
+                    { 3, "TECU-03", false, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7509), null, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(7510), null, "TEORÍA CUÁNTICA DE CAMPOS" }
                 });
 
             migrationBuilder.InsertData(
@@ -143,15 +168,15 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                 columns: new[] { "Id", "Apellidos", "EstaBorrado", "FechaActualizacion", "FechaBorrado", "FechaCreacion", "FechaNacimento", "Genero", "Nombres" },
                 values: new object[,]
                 {
-                    { 1, "RAMOS", false, new DateTime(2021, 3, 6, 5, 8, 48, 43, DateTimeKind.Local).AddTicks(9997), null, new DateTime(2021, 3, 6, 5, 8, 48, 44, DateTimeKind.Local).AddTicks(8642), new DateTime(2000, 1, 1, 7, 0, 0, 0, DateTimeKind.Unspecified), 1, "SERGIO" },
-                    { 2, "DIAZ ARANGO", false, new DateTime(2021, 3, 6, 5, 8, 48, 45, DateTimeKind.Local).AddTicks(778), null, new DateTime(2021, 3, 6, 5, 8, 48, 45, DateTimeKind.Local).AddTicks(783), new DateTime(2000, 1, 1, 7, 0, 0, 0, DateTimeKind.Unspecified), 1, "MARTÍN ALEJANDRO" },
-                    { 3, "PEREZ LINARES", false, new DateTime(2021, 3, 6, 5, 8, 48, 45, DateTimeKind.Local).AddTicks(786), null, new DateTime(2021, 3, 6, 5, 8, 48, 45, DateTimeKind.Local).AddTicks(787), new DateTime(2000, 1, 1, 7, 0, 0, 0, DateTimeKind.Unspecified), 0, "ANDREA VALERIA" }
+                    { 1, "RAMOS", false, new DateTime(2021, 3, 9, 16, 18, 0, 550, DateTimeKind.Local).AddTicks(6805), null, new DateTime(2021, 3, 9, 16, 18, 0, 551, DateTimeKind.Local).AddTicks(4157), new DateTime(2000, 1, 1, 7, 0, 0, 0, DateTimeKind.Unspecified), 1, "SERGIO" },
+                    { 2, "DIAZ ARANGO", false, new DateTime(2021, 3, 9, 16, 18, 0, 551, DateTimeKind.Local).AddTicks(6077), null, new DateTime(2021, 3, 9, 16, 18, 0, 551, DateTimeKind.Local).AddTicks(6082), new DateTime(2000, 1, 1, 7, 0, 0, 0, DateTimeKind.Unspecified), 1, "MARTÍN ALEJANDRO" },
+                    { 3, "PEREZ LINARES", false, new DateTime(2021, 3, 9, 16, 18, 0, 551, DateTimeKind.Local).AddTicks(6084), null, new DateTime(2021, 3, 9, 16, 18, 0, 551, DateTimeKind.Local).AddTicks(6085), new DateTime(2000, 1, 1, 7, 0, 0, 0, DateTimeKind.Unspecified), 0, "ANDREA VALERIA" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Seguridad",
                 columns: new[] { "IdSeguridad", "EstaBorrado", "FechaActualizacion", "FechaBorrado", "FechaCreacion", "Contrasena", "Rol", "Usuario", "NombreUsuario" },
-                values: new object[] { 1, false, new DateTime(2021, 3, 6, 5, 8, 48, 47, DateTimeKind.Local).AddTicks(215), null, new DateTime(2021, 3, 6, 5, 8, 48, 47, DateTimeKind.Local).AddTicks(220), "123", "Administrator", "Erwing Candelario", "Erwing" });
+                values: new object[] { 1, false, new DateTime(2021, 3, 9, 16, 18, 0, 553, DateTimeKind.Local).AddTicks(2956), null, new DateTime(2021, 3, 9, 16, 18, 0, 553, DateTimeKind.Local).AddTicks(2961), "10000.Dd6gA0wpNFa758a0ENRsKA==.l4OGUevuJYQJ1B1VmTakI8c6u3jtolUZVB4Dqdzr4P4=", "Administrator", "ecandelario", "Erwing" });
 
             migrationBuilder.InsertData(
                 table: "Usuario",
@@ -163,24 +188,24 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                 columns: new[] { "Id", "EstaBorrado", "EstudianteId", "FechaActualizacion", "FechaBorrado", "FechaCreacion", "Direccion", "TipoDireccion" },
                 values: new object[,]
                 {
-                    { 1, false, 1, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2043), null, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2048), "C7CW+84 MADRID, ESPAÑA", 0 },
-                    { 2, false, 1, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2837), null, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2841), "F88X+2R MADRID, ESPAÑA", 1 },
-                    { 3, false, 2, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2843), null, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2844), "F972+V7 MADRID, ESPAÑA", 0 },
-                    { 4, false, 3, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2846), null, new DateTime(2021, 3, 6, 5, 8, 48, 46, DateTimeKind.Local).AddTicks(2847), "F8WQ+VG MADRID, ESPAÑA", 2 }
+                    { 1, false, 1, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(5472), null, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(5478), "C7CW+84 MADRID, ESPAÑA", 0 },
+                    { 2, false, 1, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6243), null, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6247), "F88X+2R MADRID, ESPAÑA", 1 },
+                    { 3, false, 2, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6249), null, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6250), "F972+V7 MADRID, ESPAÑA", 0 },
+                    { 4, false, 3, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6251), null, new DateTime(2021, 3, 9, 16, 18, 0, 552, DateTimeKind.Local).AddTicks(6252), "F8WQ+VG MADRID, ESPAÑA", 2 }
                 });
 
             migrationBuilder.InsertData(
                 table: "EstudianteCurso",
-                columns: new[] { "Id", "CursoId", "EstudianteId" },
+                columns: new[] { "CursoId", "EstudianteId" },
                 values: new object[,]
                 {
-                    { 1, 1, 1 },
-                    { 3, 2, 1 },
-                    { 6, 3, 1 },
-                    { 2, 1, 2 },
-                    { 4, 2, 2 },
-                    { 7, 3, 2 },
-                    { 5, 2, 3 }
+                    { 1, 1 },
+                    { 2, 1 },
+                    { 3, 1 },
+                    { 1, 2 },
+                    { 2, 2 },
+                    { 3, 2 },
+                    { 2, 3 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -198,17 +223,15 @@ namespace PrimeStone.Infrastructure.Persistence.Migrations
                 name: "IX_EstudianteCurso_CursoId",
                 table: "EstudianteCurso",
                 column: "CursoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_EstudianteCurso_EstudianteId",
-                table: "EstudianteCurso",
-                column: "EstudianteId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Direccion");
+
+            migrationBuilder.DropTable(
+                name: "DoWork");
 
             migrationBuilder.DropTable(
                 name: "EstudianteCurso");

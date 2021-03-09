@@ -13,6 +13,5 @@ namespace PrimeStone.Core.Dtos
         public string NombreCurso { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime? FechaFin { get; set; }
-        public IEnumerable<EstudianteCurso> EstudiantesCursos { get; set; }
     }
 }

@@ -13,9 +13,9 @@ namespace PrimeStone.Infrastructure.Persistence.Seeds
                     new Security()
                     {
                         Id = 1,
-                        User = "Erwing Candelario",
+                        User = "ecandelario",
                         UserName = "Erwing",
-                        Password = "123",
+                        Password = "10000.Dd6gA0wpNFa758a0ENRsKA==.l4OGUevuJYQJ1B1VmTakI8c6u3jtolUZVB4Dqdzr4P4=",
                         Role = RoleType.Administrator,
                         EstaBorrado = false,
                         FechaActualizacion = DateTime.Now,

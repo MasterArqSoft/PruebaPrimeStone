@@ -13,7 +13,7 @@ namespace PrimeStone.Core.Service
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<bool> DeletePost(int id)
+        public async Task<bool> DeleteCurso(int id)
         {
             await _unitOfWork.CursoRepository.DeleteAsync(id).ConfigureAwait(false);
             await _unitOfWork.SaveChangesAsync().ConfigureAwait(false);
@@ -25,15 +25,19 @@ namespace PrimeStone.Core.Service
             return await _unitOfWork.CursoRepository.GetByIdAsync(id).ConfigureAwait(false);
         }
 
-        public async Task InsertPost(Curso curso)
+        public async Task InsertCurso(Curso curso)
         {
             await _unitOfWork.CursoRepository.AddAsync(curso).ConfigureAwait(false);
             await _unitOfWork.SaveChangesAsync().ConfigureAwait(false);
         }
 
-        public async Task<bool> UpdatePost(Curso curso)
+        public async Task<bool> UpdateCurso(Curso curso)
         {
-            _unitOfWork.CursoRepository.Update(curso);
+            var existingCurso = await _unitOfWork.CursoRepository.GetByIdAsync(curso.Id).ConfigureAwait(false);
+            existingCurso.FechaFin = curso.FechaFin;
+            existingCurso.FechaInicio = curso.FechaInicio;
+
+            _unitOfWork.CursoRepository.Update(existingCurso);
             await _unitOfWork.SaveChangesAsync().ConfigureAwait(false);
             return true;
         }

@@ -1,0 +1,12 @@
+/api/Curso - Capa PrimeStone.Core | Object reference not set to an instance of an object. 12:01:00
+PrimeStone.Core.Service.CursoService+<UpdateCurso>d__5
+
+/api/Security - Capa System.Security.Cryptography.Algorithms | Salt is not at least eight bytes. (Parameter 'saltSize') 12:40:43
+System.Security.Cryptography.Rfc2898DeriveBytes
+
+/api/Security - Capa System.Security.Cryptography.Algorithms | Salt is not at least eight bytes. (Parameter 'saltSize') 13:12:35
+System.Security.Cryptography.Rfc2898DeriveBytes
+
+/api/Token - Capa PrimeStone.Web.Api | Object reference not set to an instance of an object. 13:21:21
+PrimeStone.Web.Api.Controllers.TokenController+<IsValidUser>d__5
+

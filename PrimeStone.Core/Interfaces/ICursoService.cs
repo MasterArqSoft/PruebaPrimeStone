@@ -7,10 +7,10 @@ namespace PrimeStone.Core.Interfaces
     {
         Task<Curso> GetCurso(int id);
 
-        Task InsertPost(Curso curso);
+        Task InsertCurso(Curso curso);
 
-        Task<bool> UpdatePost(Curso curso);
+        Task<bool> UpdateCurso(Curso curso);
 
-        Task<bool> DeletePost(int id);
+        Task<bool> DeleteCurso(int id);
     }
 }

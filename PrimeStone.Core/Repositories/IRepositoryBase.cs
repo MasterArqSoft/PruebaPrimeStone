@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PrimeStone.Core.Repositories
@@ -19,6 +16,8 @@ namespace PrimeStone.Core.Repositories
         void Update(T entity);
 
         Task DeleteAsync(int id);
+
+        void Delete(T entity);
 
         void DeleteRange(IEnumerable<T> entity);
     }

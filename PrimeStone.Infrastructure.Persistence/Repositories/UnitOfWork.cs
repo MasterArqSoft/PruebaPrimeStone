@@ -8,38 +8,32 @@ namespace PrimeStone.Infrastructure.Persistence.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly PrimeStoneDbContext _context;
-        private readonly ICursoRepository _cursoRepository;
-        private readonly IDireccionRepository _direccionRepository;
-        private readonly IRepository<User> _userRepository;
-        private readonly IRepository<Estudiante> _estudianteRepository;
-        private readonly ISecurityRepository _securityRepository;
 
-        public UnitOfWork(
-             PrimeStoneDbContext context,
-             ICursoRepository cursoRepository,
-             IDireccionRepository direccionRepository,
-             IRepository<User> userRepository,
-             IRepository<Estudiante> estudianteRepository,
-              ISecurityRepository securityRepository
-            )
+        public UnitOfWork(PrimeStoneDbContext context)
         {
             _context = context;
-            _cursoRepository = cursoRepository;
-            _direccionRepository = direccionRepository;
-            _userRepository = userRepository;
-            _estudianteRepository = estudianteRepository;
-            _securityRepository = securityRepository;
+            CursoRepository = new CursoRepository(_context);
+            DireccionRepository = new DireccionRepository(_context);
+            EstudianteCursoRepository = new EstudianteCursoRepository(_context);
+            UserRepository = new BaseRepository<User>(_context);
+            EstudianteRepository = new BaseRepository<Estudiante>(_context);
+            SecurityRepository = new SecurityRepository(_context);
+            DoWorkRepository = new DoWorkRepository(_context);
         }
 
-        public ICursoRepository CursoRepository => _cursoRepository ?? new CursoRepository(_context);
+        public ICursoRepository CursoRepository { get; }
 
-        public IDireccionRepository DireccionRepository => _direccionRepository ?? new DireccionRepository(_context);
+        public IDireccionRepository DireccionRepository { get; }
 
-        public IRepository<User> UserRepository => _userRepository ?? new BaseRepository<User>(_context);
+        public IEstudianteCursoRepository EstudianteCursoRepository { get; }
 
-        public IRepository<Estudiante> EstudianteRepository => _estudianteRepository ?? new BaseRepository<Estudiante>(_context);
+        public IRepository<User> UserRepository { get; }
 
-        public ISecurityRepository SecurityRepository => _securityRepository ?? new SecurityRepository(_context);
+        public IRepository<Estudiante> EstudianteRepository { get; }
+
+        public ISecurityRepository SecurityRepository { get; }
+
+        public IDoWorkRepository DoWorkRepository { get; }
 
         public void Dispose()
         {

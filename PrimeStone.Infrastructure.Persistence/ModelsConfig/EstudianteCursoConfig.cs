@@ -12,12 +12,7 @@ namespace PrimeStone.Infrastructure.Persistence.ModelsConfig
 
             #region Campos
 
-            entityBuilder.HasKey(x => x.Id);
-            entityBuilder.Property(x => x.Id)
-                         .HasColumnType("int")
-                         .HasColumnName("Id")
-                         .HasComment("Student Identifier")
-                         .IsRequired();
+            entityBuilder.HasKey(o => new { o.EstudianteId, o.CursoId });
 
             entityBuilder.Property(x => x.EstudianteId)
                          .HasColumnType("int")

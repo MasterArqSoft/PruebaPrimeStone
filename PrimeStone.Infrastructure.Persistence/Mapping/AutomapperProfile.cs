@@ -22,6 +22,9 @@ namespace PrimeStone.Infrastructure.Persistence.Mapping
             CreateMap<Estudiante, EstudianteDto>();
             CreateMap<EstudianteDto, Estudiante>();
 
+            CreateMap<EstudianteCurso, EstudianteCursoDto>();
+            CreateMap<EstudianteCursoDto, EstudianteCurso>();
+
             CreateMap<Security, SecurityDto>().ReverseMap();
         }
     }

@@ -33,7 +33,12 @@ namespace PrimeStone.Core.Service
 
         public async Task<bool> UpdateEstudiante(Estudiante estudiante)
         {
-            _unitOfWork.EstudianteRepository.Update(estudiante);
+            var existingEstudiante = await _unitOfWork.EstudianteRepository.GetByIdAsync(estudiante.Id);
+            existingEstudiante.Nombres = estudiante.Nombres;
+            existingEstudiante.Apellidos = estudiante.Apellidos;
+            existingEstudiante.FechaNacimento = estudiante.FechaNacimento;
+
+            _unitOfWork.EstudianteRepository.Update(existingEstudiante);
             await _unitOfWork.SaveChangesAsync().ConfigureAwait(false);
             return true;
         }

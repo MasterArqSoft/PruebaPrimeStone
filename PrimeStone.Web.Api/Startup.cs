@@ -6,11 +6,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using PrimeStone.Core.SecurityService;
 using PrimeStone.Infrastructure.Persistence;
-using PrimeStone.Infrastructure.Persistence.Filter;
+using PrimeStone.Web.Api.Middlewares;
 using System;
 using System.Text;
-using AutoMapper;
 
 namespace PrimeStone.Web.Api
 {
@@ -26,12 +26,15 @@ namespace PrimeStone.Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContexts(Configuration);
+            services.Configure<PasswordOptions>(options => Configuration.GetSection("PasswordOptions").Bind(options));
+
+            services.AddDbContexts( Configuration );
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-          
+
             services.AddServices();
 
-            services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>()).AddNewtonsoftJson(options =>
+            services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
@@ -55,7 +58,35 @@ namespace PrimeStone.Web.Api
                 };
             });
 
-            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "PrimeStone.Web.Api", Version = "v1" }));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PrimeStone.Web.Api", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                          new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Type = ReferenceType.SecurityScheme,
+                                    Id = "Bearer"
+                                }
+                            },
+                            Array.Empty<string>()
+
+                    }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,10 +98,13 @@ namespace PrimeStone.Web.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PrimeStone.Web.Api v1"));
             }
+            app.UseMiddleware<GlobalException>();
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
